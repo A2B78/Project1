@@ -16,6 +16,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: ./
         with:
-          image_name: a2barros78/muhmuh
+          image_name: Dockerfile
           tag: ${{ github.sha }}
           context: '.'
