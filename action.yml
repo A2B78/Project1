@@ -1,5 +1,6 @@
 ---
 name: 'Docker Build and Push'
+description: 'Build and push Docker image to GitHub Packages registry using GitHub Actions and Docker Hub credentials stored in GitHub Secrets'
 
 inputs:
   image_name:
@@ -28,6 +29,6 @@ runs:
         push: true
         tags: ${{ inputs.image_name }}:${{ inputs.tag || github.ref_name }}
 
-env:
-  DOCKER_USERNAME: ${{ github.actor }}
-  DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        DOCKER_USERNAME: ${{ github.actor }}
+        DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
