@@ -55,6 +55,7 @@ runs:
       with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
     
     - id: build-tag-push
       shell: bash
