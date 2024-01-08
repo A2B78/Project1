@@ -1,0 +1,13 @@
+{
+  "name": "tuxsay",
+  "version": "1.0.0",
+  "description": "TuxSay Docker Image",
+  "main": "tuxsay.js",
+  "scripts": {
+    "start": "node tuxsay.js"
+  },
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
+
