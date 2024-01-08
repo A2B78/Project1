@@ -1,6 +1,6 @@
 ---
 name: 'Docker Build and Push'
-description: 'Build and push Docker image to GitHub Packages registry using GitHub Actions and Docker Hub credentials stored in GitHub Secrets'
+description: "Build and push Docker image to GitHub Packages registry using GitHub Actions with Docker Hub credentials."
 
 inputs:
   image_name:
