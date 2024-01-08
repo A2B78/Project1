@@ -1,0 +1,33 @@
+---
+name: 'Docker Build and Push'
+
+inputs:
+  image_name:
+    description: 'Name of the Docker image'
+    required: true
+  tag:
+    description: 'Docker image tag (default: branch name)'
+    required: false
+    default: ''
+  context:
+    description: 'Build context (default: .)'
+    required: false
+    default: '.'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Docker Build and Push
+      id: docker-build-push
+      uses: docker/build-push-action@v2
+      with:
+        context: ${{ inputs.context }}
+        push: true
+        tags: ${{ inputs.image_name }}:${{ inputs.tag || github.ref_name }}
+
+env:
+  DOCKER_USERNAME: ${{ github.actor }}
+  DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
